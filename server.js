@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
-const cookieParser = require("cookie-parser"); // 👈 nécessaire pour lire les cookies
+const cookieParser = require("cookie-parser");
 
 const { apiLimiter } = require("./config/rateLimit");
 const logger = require("./config/logger");
@@ -19,13 +19,13 @@ const port = process.env.PORT || 5000;
 // Middlewares globaux
 app.use(helmet());
 app.use(express.json());
-app.use(cookieParser()); // 👈 active la lecture des cookies
+app.use(cookieParser());
 
 // CORS (important si frontend ≠ backend)
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000", // 👈 ton frontend
-    credentials: true, // 👈 autorise l’envoi des cookies
+    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    credentials: true,
   })
 );
 

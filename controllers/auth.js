@@ -27,9 +27,9 @@ exports.signup = async (req, res, next) => {
 
     // Stockage du token dans un cookie sécurisé
     res.cookie("token", token, {
-      httpOnly: true,      // inaccessible en JS (sécurité XSS)
-      secure: process.env.NODE_ENV === "production", // seulement HTTPS en prod
-      sameSite: "strict",  // évite CSRF
+      httpOnly: false,      // inaccessible en JS (sécurité XSS)
+      secure: false, // seulement HTTPS en prod
+      sameSite: "lax",  // évite CSRF
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 jours en ms
     });
 
