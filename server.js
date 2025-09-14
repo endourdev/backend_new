@@ -12,6 +12,7 @@ const logger = require("./config/logger");
 require("./config/db");
 
 const authRoutes = require("./routes/auth");
+const videoRoutes = require("./routes/video");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -46,6 +47,7 @@ app.use(apiLimiter);
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/videos", videoRoutes);
 
 // Test route
 app.get("/", (req, res) => {
