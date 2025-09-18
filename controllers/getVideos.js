@@ -2,7 +2,6 @@ const videoModel = require('../models/Video');
 
 exports.getVideos = async (req, res) => {
   try {
-    // Une seule requête, sélectionne uniquement les champs utiles
     const videos = await videoModel.find().select("videoTitle videoDescription videoAuthor dateOfPublish");
 
     res.status(200).json({

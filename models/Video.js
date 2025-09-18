@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 
 const videoSchema = new mongoose.Schema({
-  videoTitle: { type: String, required: true },
-  videoDescription: { type: String, required: true },
-  videoAuthor: { type: String, required: true },
-  dateOfPublish: { type: String, required: true },
+  title: String,
+  description: String,
+  author: String,
+  userId: String,
+  url: String, // lien Cloudflare R2
+  dateOfPublish: Date,
 });
 
 module.exports = mongoose.model("Video", videoSchema);
